@@ -2,7 +2,10 @@ import sqlite3
 import tkinter as tk
 from tkinter import ttk
 
-conn = sqlite3.connect('studenci.db')
+try:
+    conn = sqlite3.connect('studenci.db')
+except ConnectionError as e:
+    print(f"Wystąpił wyjątek: {str(e)}")
 
 root = tk.Tk()
 root.title("Studenci")
